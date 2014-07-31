@@ -21,7 +21,6 @@ get "/endpoint" do
 end
 
 post "/endpoint" do
-  puts request.body
+  puts request.body.to_s
   status 200
-  body request.body
 end
