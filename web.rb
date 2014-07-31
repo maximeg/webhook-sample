@@ -21,6 +21,6 @@ get "/endpoint" do
 end
 
 post "/endpoint" do
-  puts request.body.try(:string)
+  puts request.body.string
   status 200
 end
