@@ -11,7 +11,7 @@ end
 
 get "/endpoint" do
   puts params.inspect
-  if params["hub.mode"] == "challenge" && params["hub.challenge"] && params["hub.verify_token"]
+  if params["hub.mode"] == "subscribe" && params["hub.challenge"] && params["hub.verify_token"]
     status 200
     body params["hub.challenge"].to_s
   else
