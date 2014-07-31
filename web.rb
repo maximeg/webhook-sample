@@ -8,7 +8,8 @@ get "/" do
 end
 
 get "/endpoint" do
-  if params["hub.mode"] == "challenge"
+  puts params.inspect
+  if params["hub.mode"] == "challenge" && params["hub.challenge"] && params["hub.verify_token"]
     status 200
     body params["hub.challenge"].to_s
   else
@@ -18,6 +19,7 @@ get "/endpoint" do
 end
 
 post "/endpoint" do
+  puts request.body
   status 200
   body request.body
 end
