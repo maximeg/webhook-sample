@@ -10,7 +10,7 @@ get "/" do
 end
 
 get "/endpoint" do
-  puts params.inspect
+  puts "WEBHOOK: Params received: #{params.inspect}"
   if params["hub.mode"] == "subscribe" && params["hub.challenge"] && params["hub.verify_token"]
     status 200
     body params["hub.challenge"].to_s
@@ -21,6 +21,6 @@ get "/endpoint" do
 end
 
 post "/endpoint" do
-  puts request.body.string
+  puts "WEBHOOK: Body received: #{request.body.string}"
   status 200
 end
