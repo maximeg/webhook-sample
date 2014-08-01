@@ -1,0 +1,16 @@
+<h1>Webhook consumer sample</h1>
+<p>Use a name as a namespace: /:name/endpoint</p>
+
+<h2>Seen entries</h2>
+<% if $logs.any? %>
+  <ul>
+    <% $logs.each do |key, logs| %>
+      <li>
+        <a href="/<%= key %>/logs"><%= key %></a>
+        (<%= logs.length %> entries)
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Nothing here yet!</p>
+<% end %>

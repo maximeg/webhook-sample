@@ -1,0 +1,14 @@
+<h1>Webhook consumer sample</h1>
+
+<h2>Entries for <%= @name %></h2>
+
+<ul>
+  <% $logs[@name].each do |time, log| %>
+    <li>
+      <b><%= time %></b>
+      <%= log %>
+    </li>
+  <% end %>
+</ul>
+
+<a href="/">Back</a>
