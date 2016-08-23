@@ -28,7 +28,7 @@ get "/:name/endpoint" do
     status 200
     body params["hub.challenge"].to_s
   else
-    $logs[@name] << "METHOD=GET, ParamsReceived=#{challenge_params.inspect}, STATUS=400"
+    $logs[@name][Time.now] << "METHOD=GET, ParamsReceived=#{challenge_params.inspect}, STATUS=400"
     status 400
     body "Invalid challenge request"
   end
